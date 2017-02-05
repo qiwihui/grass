@@ -1,37 +1,41 @@
 <template>
-  <div class="login">
-    <h2>{{ msg }} grass</h2>
+  <div class="home">
+    <!-- 导航搜索 -->
+    <topbar></topbar>
+    <!-- 索引 -->
+    <div class="detail">
+      <navi></navi>
+      <!-- 详细内容 -->
+      <detail></detail>
+      <!-- footer -->
+      <foot></foot>
+    </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'login',
-  data () {
-    return {
-      msg: 'Hello'
+  import Topbar from './topbar'
+  import Navi from './nav'
+  import Content from './content'
+  import Footer from './footer'
+  export default {
+    name: 'home',
+    data () {
+      return {
+        msg: 'Hello'
+      }
+    },
+    components: {
+      'topbar': Topbar,
+      'navi': Navi,
+      'detail': Content,
+      'foot': Footer
     }
   }
-}
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
+  .home {
+    position: relative;
+    min-height: 100%;
+  }
 </style>
