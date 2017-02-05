@@ -15,6 +15,17 @@ const router = new VueRouter({
   routes: RegisterRouters
 })
 
+router.beforeEach(({meta, path}, from, next) => {
+  let { auth = true } = meta
+  // TODO 检查登录
+  let isLogin = Boolean(1)
+
+  if (auth && !isLogin && path !== '/login') {
+    return next({ path: '/login' })
+  }
+  next()
+})
+
 new Vue(Vue.util.extend({
   router,
   store
