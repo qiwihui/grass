@@ -5,6 +5,7 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import RegisterRouters from './lib/routers'
+import store from './store'
 
 Vue.use(VueRouter)
 Vue.use(VueResource)
@@ -15,5 +16,6 @@ const router = new VueRouter({
 })
 
 new Vue(Vue.util.extend({
-  router
+  router,
+  store
 }, App)).$mount('#app')
